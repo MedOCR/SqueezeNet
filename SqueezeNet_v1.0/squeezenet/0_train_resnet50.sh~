@@ -1,7 +1,0 @@
-#./run.sh /media/haria/data/data/vgg_face/ 28
-num_examples=`cat train.txt |wc -l`
-epoch_first_stage=50
-epochs=200
-batch_size=40
-python train.py --network resnet-50 --num-examples $num_examples --lr 0.1 --num-epoch $epoch_first_stage --model-prefix `pwd`/gender  --data-dir `pwd`/ --batch-size $batch_size
-python train.py --network resnet-50 --num-examples $num_examples --model-prefix `pwd`/gender  --data-dir `pwd`/ --batch-size $batch_size --load-epoch $epoch_first_stage --lr 0.01 --lr-factor 0.1 --lr-factor-epoch 25 --num-epoch $epochs
